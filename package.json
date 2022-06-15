@@ -4,21 +4,39 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./dist/bundle.js",
+    "run-webpack": "rmdir /s /q dist && webpack --mode development --config webpack.config.js",
     "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nammon72/nodejs.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bug": {
+    "url": "https://github.com/nammon72/nodejs/issues"
+  },
+  "homepage": "https://github.com/nammon72/nodejs#readme",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "7.18.5",
+    "@babel/runtime": "7.18.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
-    "monk": "^7.3.4",
-    "morgan": "^1.10.0"
+    "mongoose": "^6.3.8",
+    "morgan": "^1.10.0",
+    "rotating-file-stream": "^2.1.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
+    "nodemon": "^2.0.16",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }
