@@ -25,27 +25,37 @@ Constraints:
 
 // Bài giải
 function longSort() {
-  let nums = [3, 7, 2, 5, 8, 4, 6, 0, 11, 1];
-  // if (nums.length >= 0 && nums.length <= 105)
-  let middle,
-    newNums = 0;
-  for (let i = 0; i < nums.length - 1; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] > nums[j]) {
-        middle = nums[i];
-        nums[i] = nums[j];
-        nums[j] = middle;
-      }
-      if (nums[i] == nums[j] + 1) {
-        newNums += 1;
-      } else {
-        newNums += 1;
+  const nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 11, 1, 9, 12, 1, 2, 110];
+  if (nums.length < 0 || nums.length > 105) {
+    console.log("Mảng nhập vào không thoải điều kiện!");
+  } else {
+    let middle;
+    for (let i = 0; i < nums.length - 1; i++) {
+      for (let j = i + 1; j < nums.length; j++) {
+        if (nums[i] > nums[j]) {
+          middle = nums[i];
+          nums[i] = nums[j];
+          nums[j] = middle;
+        }
       }
     }
+    console.log(nums);
+    let count = 1;
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] < -109 || nums[i] > 109) {
+        // nums[i] = 110 mà vẫn chạy là sao em nhỉ?
+        console.log("Mảng nhập vào không thoải điều kiện!");
+        break;
+      } else if (nums[i] === nums[i + 1] - 1) {
+        count += 1;
+        // nums[i] = nums[i + 1];
+      } else if (nums[i] === nums[i + 1]) {
+        // nums[i] = nums[i + 1];
+      } else {
+        break;
+      }
+    }
+    console.log(count);
   }
-  console.log(nums);
-  console.log(newNums);
 }
 longSort();
-
-// https://dev.to/seanpgallivan/solution-longest-consecutive-sequence-27ni?signin=true
